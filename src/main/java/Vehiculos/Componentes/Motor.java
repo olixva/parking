@@ -7,7 +7,7 @@ public class Motor {
     private CombustibleEnum combustible;
 
     public Motor(CombustibleEnum combustible) {
-        this.vidaUtil = (int) ((Math.random() * (150.000 - 50.000 + 1)) + 50.000);
+        this.vidaUtil = (int) ((Math.random() * (150000 - 50000 + 1)) + 50000);
         this.kmActual = 0;
         this.combustible = combustible;
     }

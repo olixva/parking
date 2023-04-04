@@ -6,7 +6,7 @@ public class Rueda {
     private int kmActual;
 
     public Rueda() {
-        this.vidaUtil = (int) ((Math.random() * (80.000 - 20.000 + 1)) + 20.000);
+        this.vidaUtil = (int) ((Math.random() * (80000 - 20000 + 1)) + 20000);
         this.kmActual = 0;
     }
 

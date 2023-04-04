@@ -35,5 +35,23 @@ public abstract class Vehiculo implements Runnable {
         this.ruedas = ruedas;
     }
 
+    public boolean isAparcado() {
+        return aparcado;
+    }
+
+    public void setAparcado(boolean aparcado) {
+        this.aparcado = aparcado;
+    }
+
+    public boolean isRoto() {
+        return roto;
+    }
+
+    public void setRoto(boolean roto) {
+        this.roto = roto;
+    }
+
+   
+
     
 }
