@@ -24,9 +24,12 @@ public abstract class Vehiculo implements Runnable {
 
         this.motor.addKmActual(km);
 
-        for (Rueda rueda : this.getRuedas()) {
+        for (Rueda rueda : this.ruedas) {
             rueda.addKmActual(km);
         }
+
+        // TODO
+        System.out.println("El coche " + this + " ha recorrido " + km);
 
         if (!this.motor.puedeRodar()) {
             roto = true;
@@ -40,10 +43,7 @@ public abstract class Vehiculo implements Runnable {
                 this.cambiarRueda(rueda);
             }
         }
-        Thread.sleep(km);
-
-        // TODO
-        System.out.println("El coche " + this + " ha recorrido " + km);
+        Thread.sleep((km*2)); //TODO hacer que se duerma antes de poner los km recorridos
     }
 
     @Override
@@ -54,6 +54,8 @@ public abstract class Vehiculo implements Runnable {
             try {
                 
                 this.rodar();
+                
+                if (!this.roto && ParkingSingleton.getInstancia().puedeAparcar(this)) 
                 ParkingSingleton.getInstancia().aparcar(this);
                 
 
@@ -73,14 +75,6 @@ public abstract class Vehiculo implements Runnable {
 
     public void setRuedas(List<Rueda> ruedas) {
         this.ruedas = ruedas;
-    }
-
-    public List<Rueda> getRuedas() {
-        return ruedas;
-    }
-
-    public boolean isAparcado() {
-        return aparcado;
     }
 
     public void setAparcado(boolean aparcado) {

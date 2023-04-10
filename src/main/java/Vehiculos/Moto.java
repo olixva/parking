@@ -19,6 +19,9 @@ public class Moto extends Vehiculo {
         }
         
         this.setRuedas(ruedas);
+
+        Thread hilo = new Thread(this);
+        hilo.start();
     }
 
 }

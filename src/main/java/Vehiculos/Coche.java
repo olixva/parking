@@ -13,11 +13,14 @@ public class Coche extends Vehiculo {
         super(new Motor(CombustibleEnum.DIESEL));
 
         List<Rueda> ruedas = new ArrayList<>();
-        
+
         for (int i = 0; i < NUM_RUEDAS; i++) {
             ruedas.add(new Rueda());
         }
-        
+
         this.setRuedas(ruedas);
+
+        Thread hilo = new Thread(this);
+        hilo.start();
     }
 }

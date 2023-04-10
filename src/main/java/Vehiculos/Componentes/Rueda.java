@@ -14,18 +14,6 @@ public class Rueda {
         return (kmActual < vidaUtil);
     }
 
-    public int getVidaUtil() {
-        return vidaUtil;
-    }
-
-    public void setVidaUtil(int vidaUtil) {
-        this.vidaUtil = vidaUtil;
-    }
-
-    public int getKmActual() {
-        return kmActual;
-    }
-
     public void addKmActual(int kmActual) {
         this.kmActual += kmActual;
     }

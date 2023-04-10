@@ -2,11 +2,7 @@ package parking;
 
 import java.util.Vector;
 
-import Vehiculos.Camion;
-import Vehiculos.Coche;
-import Vehiculos.Moto;
-import Vehiculos.PatinElectrico;
-import Vehiculos.Vehiculo;
+import Vehiculos.*;
 
 public class ParkingSingleton {
 
@@ -63,9 +59,9 @@ public class ParkingSingleton {
         System.out.println("El vehiculo " + vehiculo + "ha entrado al parking"); //TODO
 
         int tiempoAparcado = (int) ((Math.random() * (60 - 1 + 1)) + 1);
-        Thread.sleep((tiempoAparcado * 1));
+        Thread.sleep((tiempoAparcado * 1000));
         this.salir(vehiculo);
-        System.out.println("El vehiculo " + vehiculo + "ha salido del parking y ha estado aparcado " + tiempoAparcado);
+        System.out.println("El vehiculo " + vehiculo.getClass().toString() + "ha salido del parking y ha estado aparcado " + tiempoAparcado);
     }
 
     public void salir(Vehiculo vehiculo) {
