@@ -3,6 +3,7 @@ package Vehiculos;
 import java.util.List;
 
 import Vehiculos.Componentes.*;
+import parking.ParkingSingleton;
 
 public abstract class Vehiculo implements Runnable {
 
@@ -12,40 +13,70 @@ public abstract class Vehiculo implements Runnable {
     protected boolean roto;
 
     public Vehiculo(Motor motor) {
-        Thread hilo = new Thread(this);
         this.motor = motor;
         this.aparcado = false;
         this.roto = false;
     }
 
-    public void rodar(int distancia) throws InterruptedException {
+    public void rodar() throws InterruptedException {
 
         int km = (int) ((Math.random() * (5000 - 500 + 1)) + 500);
 
         this.motor.addKmActual(km);
 
-        for (Rueda rueda : this.ruedas) {
+        for (Rueda rueda : this.getRuedas()) {
             rueda.addKmActual(km);
         }
 
-        Thread.sleep(km); 
-        
+        if (!this.motor.puedeRodar()) {
+            roto = true;
+            System.out.println("El motor se ha roto");// TODO
+            Thread.interrupted();
+        }
+
+        for (Rueda rueda : this.ruedas) {
+            if (!rueda.puedeRodar()) {
+                System.out.println("La rueda " + rueda + "se ha roto"); // TODO
+                this.cambiarRueda(rueda);
+            }
+        }
+        Thread.sleep(km);
+
+        // TODO
+        System.out.println("El coche " + this + " ha recorrido " + km);
     }
 
-    public Motor getMotor() {
-        return motor;
+    @Override
+    public void run() {
+
+        while (!this.roto) {
+            
+            try {
+                
+                this.rodar();
+                ParkingSingleton.getInstancia().aparcar(this);
+                
+
+            } catch (InterruptedException e) {
+
+                e.printStackTrace();
+            }
+
+        }
     }
 
-    public void setMotor(Motor motor) {
-        this.motor = motor;
-    }
+    public void cambiarRueda(Rueda rueda){
 
-    public List<Rueda> getRuedas() {
-        return ruedas;
+        this.ruedas.set(this.ruedas.indexOf(rueda), new Rueda());
+        System.out.println("La rueda del vehiculo " + this + " ha sido cambiada");
     }
 
     public void setRuedas(List<Rueda> ruedas) {
         this.ruedas = ruedas;
+    }
+
+    public List<Rueda> getRuedas() {
+        return ruedas;
     }
 
     public boolean isAparcado() {
@@ -54,10 +85,6 @@ public abstract class Vehiculo implements Runnable {
 
     public void setAparcado(boolean aparcado) {
         this.aparcado = aparcado;
-    }
-
-    public boolean isRoto() {
-        return roto;
     }
 
     public void setRoto(boolean roto) {

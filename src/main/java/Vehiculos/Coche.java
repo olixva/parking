@@ -20,13 +20,4 @@ public class Coche extends Vehiculo {
         
         this.setRuedas(ruedas);
     }
-
-    @Override
-    public void run() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'run'");
-    }
-
-    
-
 }
