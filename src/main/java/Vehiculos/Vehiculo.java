@@ -12,12 +12,25 @@ public abstract class Vehiculo implements Runnable {
     protected boolean roto;
 
     public Vehiculo(Motor motor) {
+        Thread hilo = new Thread(this);
         this.motor = motor;
         this.aparcado = false;
         this.roto = false;
     }
 
-    public abstract void rodar(int distancia);
+    public void rodar(int distancia) throws InterruptedException {
+
+        int km = (int) ((Math.random() * (5000 - 500 + 1)) + 500);
+
+        this.motor.addKmActual(km);
+
+        for (Rueda rueda : this.ruedas) {
+            rueda.addKmActual(km);
+        }
+
+        Thread.sleep(km); 
+        
+    }
 
     public Motor getMotor() {
         return motor;
@@ -51,7 +64,4 @@ public abstract class Vehiculo implements Runnable {
         this.roto = roto;
     }
 
-   
-
-    
 }

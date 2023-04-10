@@ -27,10 +27,4 @@ public class PatinElectrico extends Vehiculo {
         throw new UnsupportedOperationException("Unimplemented method 'run'");
     }
 
-    @Override
-    public void rodar(int distancia) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rodar'");
-    }
-
 }
