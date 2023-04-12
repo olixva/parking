@@ -9,6 +9,8 @@ public class Camion extends Vehiculo {
 
     private static final int NUM_RUEDAS = 8;
 
+    private static int nCamiones = 1;
+
     public Camion() {
         super(new Motor(CombustibleEnum.DIESEL));
 
@@ -20,7 +22,8 @@ public class Camion extends Vehiculo {
 
         this.setRuedas(ruedas);
 
-        Thread hilo = new Thread(this);
+        Thread hilo = new Thread(this, (this.getClass().getName()+" "+nCamiones));
         hilo.start();
+        nCamiones++;
     }
 }

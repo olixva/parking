@@ -9,6 +9,8 @@ public class Coche extends Vehiculo {
 
     private static final int NUM_RUEDAS = 4;
 
+    private static int nCoches = 1;
+
     public Coche() {
         super(new Motor(CombustibleEnum.DIESEL));
 
@@ -22,5 +24,6 @@ public class Coche extends Vehiculo {
 
         Thread hilo = new Thread(this);
         hilo.start();
+        nCoches++;
     }
 }

@@ -9,6 +9,8 @@ public class Moto extends Vehiculo {
 
     private static final int NUM_RUEDAS = 2;
 
+    private static int nMotos = 0;
+
     public Moto() {
         super(new Motor(CombustibleEnum.GASOLINA));
 
@@ -22,6 +24,7 @@ public class Moto extends Vehiculo {
 
         Thread hilo = new Thread(this);
         hilo.start();
+        nMotos++;
     }
 
 }

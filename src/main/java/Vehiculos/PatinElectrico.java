@@ -9,6 +9,8 @@ public class PatinElectrico extends Vehiculo {
 
     private static final int NUM_RUEDAS = 4;
 
+    private static int nPatines = 0;
+
     public PatinElectrico() {
         super(new Motor(CombustibleEnum.ELECTRICO));
 
@@ -22,5 +24,6 @@ public class PatinElectrico extends Vehiculo {
 
         Thread hilo = new Thread(this);
         hilo.start();
+        nPatines++;
     }
 }

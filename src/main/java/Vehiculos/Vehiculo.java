@@ -1,12 +1,18 @@
 package Vehiculos;
 
+
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import Vehiculos.Componentes.*;
 import parking.ParkingSingleton;
 
 public abstract class Vehiculo implements Runnable {
 
+    private static final Logger log = LogManager.getLogger();
+    
     protected Motor motor;
     protected List<Rueda> ruedas;
     protected boolean aparcado;
@@ -28,9 +34,8 @@ public abstract class Vehiculo implements Runnable {
             rueda.addKmActual(km);
         }
 
-        // TODO
-        System.out.println("El coche " + this + " ha recorrido " + km);
-
+        log.info("El coche " + this + " ha recorrido " + km);
+        
         if (!this.motor.puedeRodar()) {
             roto = true;
             System.out.println("El motor se ha roto");// TODO
@@ -67,6 +72,7 @@ public abstract class Vehiculo implements Runnable {
         }
     }
 
+   
     public void cambiarRueda(Rueda rueda){
 
         this.ruedas.set(this.ruedas.indexOf(rueda), new Rueda());

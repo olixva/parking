@@ -22,6 +22,16 @@ public class ParkingSingleton {
         return parking;
     }
 
+    /**
+     * Esta función verifica si un vehículo determinado puede estacionar en un estacionamiento según su
+     * tipo.
+     * 
+     * @param vehiculo un objeto de tipo Vehiculo, que es una superclase para Camion, Coche, Moto y
+     * Patin. El método verifica el tipo de vehículo y devuelve verdadero si hay espacio disponible en
+     * el estacionamiento correspondiente para ese tipo de vehículo.
+     * @return El método devuelve un valor booleano que indica si el vehículo dado se puede estacionar
+     * o no, según la capacidad del estacionamiento correspondiente para ese tipo de vehículo.
+     */
     public boolean puedeAparcar(Vehiculo vehiculo) {
 
         if (vehiculo instanceof Camion) {
@@ -39,6 +49,7 @@ public class ParkingSingleton {
         }
 
     }
+
 
     public void aparcar(Vehiculo vehiculo) throws InterruptedException {
 
