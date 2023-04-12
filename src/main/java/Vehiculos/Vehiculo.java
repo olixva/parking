@@ -12,6 +12,7 @@ import parking.ParkingSingleton;
 public abstract class Vehiculo implements Runnable {
 
     private static final Logger log = LogManager.getLogger();
+   
     
     protected Motor motor;
     protected List<Rueda> ruedas;
@@ -34,17 +35,17 @@ public abstract class Vehiculo implements Runnable {
             rueda.addKmActual(km);
         }
 
-        log.info("El coche " + this + " ha recorrido " + km);
+        log.debug("El coche ha recorrido");
         
         if (!this.motor.puedeRodar()) {
             roto = true;
-            System.out.println("El motor se ha roto");// TODO
+            //System.out.println("El motor se ha roto");// TODO
             Thread.interrupted();
         }
 
         for (Rueda rueda : this.ruedas) {
             if (!rueda.puedeRodar()) {
-                System.out.println("La rueda " + rueda + "se ha roto"); // TODO
+                //System.out.println("La rueda " + rueda + "se ha roto"); // TODO
                 this.cambiarRueda(rueda);
             }
         }
@@ -76,7 +77,7 @@ public abstract class Vehiculo implements Runnable {
     public void cambiarRueda(Rueda rueda){
 
         this.ruedas.set(this.ruedas.indexOf(rueda), new Rueda());
-        System.out.println("La rueda del vehiculo " + this + " ha sido cambiada");
+        //System.out.println("La rueda del vehiculo " + this + " ha sido cambiada");
     }
 
     public void setRuedas(List<Rueda> ruedas) {
