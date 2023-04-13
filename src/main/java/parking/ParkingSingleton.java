@@ -2,10 +2,18 @@ package parking;
 
 import java.util.Vector;
 
-import Vehiculos.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import vehiculos.*;
+
+/**
+ * La clase ParkingSingleton es una implementación de un patrón de diseño
+ * singleton que
+ * administra espacios de estacionamiento para diferentes tipos de vehículos.
+ */
 public class ParkingSingleton {
-
+    private static final Logger log = LogManager.getLogger();
     private static ParkingSingleton parking = null;
     private Vector<Camion> aparcamientosCamion = new Vector<>(2);
     private Vector<Coche> aparcamientosCoche = new Vector<>(4);
@@ -23,14 +31,17 @@ public class ParkingSingleton {
     }
 
     /**
-     * Esta función verifica si un vehículo determinado puede estacionar en un estacionamiento según su
-     * tipo.
+     * La función verifica si un vehículo determinado puede estacionar en un
+     * estacionamiento en función
+     * de su tipo y la disponibilidad de espacios de estacionamiento.
      * 
-     * @param vehiculo un objeto de tipo Vehiculo, que es una superclase para Camion, Coche, Moto y
-     * Patin. El método verifica el tipo de vehículo y devuelve verdadero si hay espacio disponible en
-     * el estacionamiento correspondiente para ese tipo de vehículo.
-     * @return El método devuelve un valor booleano que indica si el vehículo dado se puede estacionar
-     * o no, según la capacidad del estacionamiento correspondiente para ese tipo de vehículo.
+     * @param vehiculo un objeto de tipo Vehiculo, que es una superclase para
+     *                 Camion, Coche, Moto y
+     *                 Patin. El método verifica el tipo de vehículo.
+     * @return El método devuelve un valor booleano que indica si el vehículo dado
+     *         se puede estacionar
+     *         o no, según la capacidad del estacionamiento correspondiente para ese
+     *         tipo de vehículo.
      */
     public boolean puedeAparcar(Vehiculo vehiculo) {
 
@@ -50,7 +61,17 @@ public class ParkingSingleton {
 
     }
 
-
+    /**
+     * La función agrega un vehículo a un estacionamiento específico
+     * según su tipo, establece su estado como
+     * estacionado, espera un tiempo aleatorio y luego llama a la
+     * función "salir" para retirar
+     * el vehículo del estacionamiento.
+     * 
+     * @param vehiculo un objeto de tipo Vehiculo, que representa un vehículo que
+     *                 necesita ser
+     *                 estacionado en el estacionamiento.
+     */
     public void aparcar(Vehiculo vehiculo) throws InterruptedException {
 
         if (vehiculo instanceof Camion) {
@@ -67,32 +88,43 @@ public class ParkingSingleton {
             aparcamientosPatin.add((PatinElectrico) vehiculo);
             vehiculo.setAparcado(true);
         }
-        //System.out.println("El vehiculo " + vehiculo + "ha entrado al parking"); //TODO
+
+        log.info("ha entrado al parking");
 
         int tiempoAparcado = (int) ((Math.random() * (60 - 1 + 1)) + 1);
         Thread.sleep((tiempoAparcado * 1000));
         this.salir(vehiculo);
-        //System.out.println("El vehiculo " + vehiculo.getClass().toString() + "ha salido del parking y ha estado aparcado " + tiempoAparcado);
+
+        log.info("ha salido del parking, ha estado aparcado " + tiempoAparcado + " segundos");
     }
 
-    public void salir(Vehiculo vehiculo) {
+    /**
+     * La función saca un vehículo de su estacionamiento correspondiente y establece
+     * su atributo
+     * "aparcado" en falso.
+     * 
+     * @param vehiculo un objeto de la clase Vehiculo, que representa un vehículo
+     *                 que necesita ser
+     *                 retirado de un estacionamiento. El método verifica el tipo de
+     *                 vehículo (Camion, Coche, Moto o
+     *                 Patin) y lo retira del estacionamiento correspondiente.
+     */
+    private void salir(Vehiculo vehiculo) {
 
         if (vehiculo instanceof Camion) {
-            aparcamientosCamion.remove((Camion) vehiculo);
+            aparcamientosCamion.remove(vehiculo);
             vehiculo.setAparcado(false);
         } else if (vehiculo instanceof Coche) {
-            aparcamientosCoche.remove((Coche) vehiculo);
+            aparcamientosCoche.remove(vehiculo);
             vehiculo.setAparcado(false);
 
         } else if (vehiculo instanceof Moto) {
-            aparcamientosMoto.remove((Moto) vehiculo);
+            aparcamientosMoto.remove(vehiculo);
             vehiculo.setAparcado(false);
         } else {
-            aparcamientosPatin.remove((PatinElectrico) vehiculo);
+            aparcamientosPatin.remove(vehiculo);
             vehiculo.setAparcado(false);
         }
     }
-
-   
 
 }

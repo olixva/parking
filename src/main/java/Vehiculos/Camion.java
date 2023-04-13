@@ -1,10 +1,16 @@
-package Vehiculos;
+package vehiculos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Vehiculos.Componentes.*;
+import vehiculos.componentes.*;
 
+/**
+ * La clase Camion amplía la clase Vehiculo y crea un nuevo objeto Camion con 8
+ * ruedas y un motor  diesel
+ * tambien crea un hilo de ejecucion con el nombre y numero del camion
+ * creado y lo inicia.
+ */
 public class Camion extends Vehiculo {
 
     private static final int NUM_RUEDAS = 8;
@@ -22,7 +28,7 @@ public class Camion extends Vehiculo {
 
         this.setRuedas(ruedas);
 
-        Thread hilo = new Thread(this, (this.getClass().getName()+" "+nCamiones));
+        Thread hilo = new Thread(this, (this.getClass().getName() + " " + nCamiones));
         hilo.start();
         nCamiones++;
     }

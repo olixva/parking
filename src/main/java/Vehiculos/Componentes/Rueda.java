@@ -1,5 +1,9 @@
-package Vehiculos.Componentes;
+package vehiculos.componentes;
 
+/**
+ * La clase "Rueda" representa un neumático con una vida útil generada
+ * aleatoriamente entre 20000 y 80000 km y un kilometraje actual.
+ */
 public class Rueda {
 
     private int vidaUtil;
@@ -17,5 +21,4 @@ public class Rueda {
     public void addKmActual(int kmActual) {
         this.kmActual += kmActual;
     }
-
 }

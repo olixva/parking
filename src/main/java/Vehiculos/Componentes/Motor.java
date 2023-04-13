@@ -1,5 +1,9 @@
-package Vehiculos.Componentes;
+package vehiculos.componentes;
 
+/**
+ * La clase Motor representa un motor con una cierta vida útil generada aleatoriamente entre 50000 y 150000 km, su kilometraje actual, y un tipo
+ * específico de combustible.
+ */
 public class Motor {
 
     private int vidaUtil;
@@ -15,7 +19,7 @@ public class Motor {
     public boolean puedeRodar() {
         return (kmActual < vidaUtil);
     }
-    
+
     public void addKmActual(int kmActual) {
         this.kmActual += kmActual;
     }

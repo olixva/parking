@@ -1,4 +1,6 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
-    "docwriter.language": "Spanish"
+    "docwriter.language": "Spanish",
+    "docwriter.progress.trackClasses": false,
+    "docwriter.progress.trackMethods": true
 }
