@@ -1,7 +1,8 @@
 package vehiculos.componentes;
 
 /**
- * La clase Motor representa un motor con una cierta vida útil generada aleatoriamente entre 50000 y 150000 km, su kilometraje actual, y un tipo
+ * La clase Motor representa un motor con una cierta vida útil generada
+ * aleatoriamente entre 50000 y 150000 km, su kilometraje actual, y un tipo
  * específico de combustible.
  */
 public class Motor {

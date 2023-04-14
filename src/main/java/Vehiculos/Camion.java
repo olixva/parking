@@ -7,7 +7,7 @@ import vehiculos.componentes.*;
 
 /**
  * La clase Camion amplía la clase Vehiculo y crea un nuevo objeto Camion con 8
- * ruedas y un motor  diesel
+ * ruedas y un motor diesel
  * tambien crea un hilo de ejecucion con el nombre y numero del camion
  * creado y lo inicia.
  */

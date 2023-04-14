@@ -6,7 +6,8 @@ import vehiculos.Moto;
 import vehiculos.PatinElectrico;
 
 /**
- * La clase Main genera 20 vehículos aleatorios (Camion, Coche, Moto o PatinElectrico) usando una
+ * La clase Main genera 20 vehículos aleatorios (Camion, Coche, Moto o
+ * PatinElectrico) usando una
  * instrucción switch.
  */
 public class Main {
@@ -34,6 +35,5 @@ public class Main {
                     break;
             }
         }
-
     }
 }

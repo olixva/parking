@@ -9,8 +9,8 @@ import vehiculos.*;
 
 /**
  * La clase ParkingSingleton es una implementación de un patrón de diseño
- * singleton que
- * administra espacios de estacionamiento para diferentes tipos de vehículos.
+ * singleton que administra espacios
+ * de estacionamiento para diferentes tipos de vehículos.
  */
 public class ParkingSingleton {
     private static final Logger log = LogManager.getLogger();
@@ -33,8 +33,8 @@ public class ParkingSingleton {
 
     /**
      * La función verifica si un vehículo determinado puede estacionar en un
-     * estacionamiento en función
-     * de su tipo y la disponibilidad de espacios de estacionamiento.
+     * estacionamiento en función de su tipo
+     * y la disponibilidad de espacios de estacionamiento.
      * 
      * @param vehiculo un objeto de tipo Vehiculo, que es una superclase para
      *                 Camion, Coche, Moto y

@@ -28,5 +28,5 @@ public class Rueda {
 
     public int getVidaUtil() {
         return vidaUtil;
-    } 
+    }
 }
