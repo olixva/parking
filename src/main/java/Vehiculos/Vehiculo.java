@@ -112,4 +112,16 @@ public abstract class Vehiculo implements Runnable {
         this.aparcado = aparcado;
     }
 
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public List<Rueda> getRuedas() {
+        return ruedas;
+    }
+
+    public boolean isAparcado() {
+        return aparcado;
+    }
+
 }

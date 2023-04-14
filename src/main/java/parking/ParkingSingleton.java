@@ -15,6 +15,7 @@ import vehiculos.*;
 public class ParkingSingleton {
     private static final Logger log = LogManager.getLogger();
     private static ParkingSingleton parking = null;
+
     private Vector<Camion> aparcamientosCamion = new Vector<>(2);
     private Vector<Coche> aparcamientosCoche = new Vector<>(4);
     private Vector<Moto> aparcamientosMoto = new Vector<>(4);
@@ -127,4 +128,7 @@ public class ParkingSingleton {
         }
     }
 
+    public Vector<Camion> getAparcamientosCamion() {
+        return aparcamientosCamion;
+    }
 }

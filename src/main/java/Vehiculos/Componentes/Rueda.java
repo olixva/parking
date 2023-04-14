@@ -21,4 +21,12 @@ public class Rueda {
     public void addKmActual(int kmActual) {
         this.kmActual += kmActual;
     }
+
+    public int getKmActual() {
+        return kmActual;
+    }
+
+    public int getVidaUtil() {
+        return vidaUtil;
+    } 
 }

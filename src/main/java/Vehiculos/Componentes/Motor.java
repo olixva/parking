@@ -23,4 +23,16 @@ public class Motor {
     public void addKmActual(int kmActual) {
         this.kmActual += kmActual;
     }
+
+    public CombustibleEnum getCombustible() {
+        return combustible;
+    }
+
+    public int getKmActual() {
+        return kmActual;
+    }
+
+    public int getVidaUtil() {
+        return vidaUtil;
+    }
 }
