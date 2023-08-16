@@ -7,7 +7,7 @@ import vehiculos.componentes.*;
 
 /**
  * La clase Coche amplía la clase Vehiculo y crea una nueva instancia de un
- * automóvil con cuatro ruedas y un motor diesel,
+ * automóvil con cuatro ruedas y un motor diesel
  * tambien crea un hilo de ejecucion con el nombre y numero
  * del coche creado y lo inicia.
  */
